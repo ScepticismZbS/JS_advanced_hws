@@ -55,7 +55,7 @@ console.log(r, g, b);
 
 document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 
-alert("backgroundColor: rgb(" + r + g + b")";
+alert("backgroundColor: rgb( + r + g + b)";
 
 
 var div = createElement("div");

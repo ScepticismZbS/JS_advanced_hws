@@ -32,29 +32,31 @@
       element.setAttribute
       element.appendChild
   */
-        var header = document.createElement("header");
-        var a = document.createElement("a");
-          a.href = "http://google.com.ua";
 
-        var img = document.createElement("img");
-          img.src = "https://www.google.com.ua/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
 
-        var div = document.createElement("div");
-          div.className("menu");
+      var header = document.createElement("header");
+      var a = document.createElement("a");
+      a.href = "http://google.com.ua";
 
-        var a1 = document.createElement("a");
-          a1.href = "#1";
-          a1.innerText = "link 1";
+      var img = document.createElement("img");
+      img.src = "https://www.google.com.ua/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+
+      var div = document.createElement("div");
+      div.className("menu");
+
+      var a1 = document.createElement("a");
+        a1.href = "#1";
+        a1.innerText = "link 1";
 
         var a2 = document.createElement("a");
-          a2.href = "#2";
-          a2.innerText = "link 2";
+        a1.href = "#1";
+        a1.innerText = "link 2";
 
         var a3 = document.createElement("a");
-          a3.href = "#3";
-          a3.innerText = "link 3";
+        a1.href = "#1";
+        a1.innerText = "link 3";
 
-        a.appendChild(img);
+        a.appendChild(img)
 
         div.appendChild(a1);
         div.appendChild(a2);
@@ -63,8 +65,44 @@
         header.appendChild(a);
         header.appendChild(div);
 
-        var app = querySelector("#app");
+        var app = document.getElementById("app");
         app.appendChild(header);
+
+
+
+        // var header = document.createElement("header");
+        // var a = document.createElement("a");
+        //   a.href = "http://google.com.ua";
+
+        // var img = document.createElement("img");
+        //   img.src = "https://www.google.com.ua/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+
+        // var div = document.createElement("div");
+        //   div.className("menu");
+
+        // var a1 = document.createElement("a");
+        //   a1.href = "#1";
+        //   a1.innerText = "link 1";
+
+        // var a2 = document.createElement("a");
+        //   a2.href = "#2";
+        //   a2.innerText = "link 2";
+
+        // var a3 = document.createElement("a");
+        //   a3.href = "#3";
+        //   a3.innerText = "link 3";
+
+        // a.appendChild(img);
+
+        // div.appendChild(a1);
+        // div.appendChild(a2);
+        // div.appendChild(a3);
+
+        // header.appendChild(a);
+        // header.appendChild(div);
+
+        // var app = querySelector("#app");
+        // app.appendChild(header);
 
 
 
