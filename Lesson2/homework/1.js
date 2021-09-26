@@ -45,6 +45,10 @@
 
       let btns = document.querySelectorAll("button");
       console.log(btns);
+
+
+
+
         
          function show(event) {
         let numTab = event.target.dataset.tab
@@ -54,5 +58,5 @@
       let tabs = document.querySelectorAll(".tab");
 
       btns.onclick = function() {
-        
+        btns.forEach.classList.add(active);
       }
