@@ -9,6 +9,16 @@
   <div id="target"></div>
 
   <script>
+
+    var target = document.getElementById("target");
+
+    var div = document.createElement("div");
+    div.className = "Ctrl Shift Delete";
+    div.classList.add("newClass");
+    div.classList.remove("Delete");
+    div.classList.toggle("command");
+
+    target.appendChild( div );
     /*
       1. Выбрать блок Target
       2. Cоздать див внутри этого блока

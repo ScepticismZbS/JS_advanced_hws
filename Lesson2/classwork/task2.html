@@ -12,7 +12,7 @@
       <ul id="hoverResult" class="resultBlock">
         <li class="red">Hovered!</li>
         <li class="blue">Hovered!</li>
-        <li class="orange">Hovered!</li>
+        <li class="green">Hovered!</li>
         <li class="orange">Hovered!</li>
         <li class="purple">Hovered!</li>
       </ul>
@@ -80,6 +80,14 @@
 
     */
 
+    var arrOfColors = ["red", "blue", "green", "orange", "purple"]
+
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
     var mouseHover = document.getElementById('mouseHover');
     var mouseClick = document.getElementById('mouseClick');
     var mouseLight = document.getElementById('mouseLight');
@@ -87,22 +95,97 @@
 
     mouseHover.onmouseenter = function(){
       console.log('hover');
+      var listEl = document.createElement("li");
+      listEl.innerText = "Howered!";
+      listEl.classList.add(arrOfColors[getRandomIntInclusive(0, arrOfColors.length - 1)]);
+
+      document.getElementById("hoverResult").appendChild(listEl);
     }
 
     var clickIndex = 0;
     var direction = true;
 
-    mouseClick.onclick = function(){
+    var arrOfNumbers = ["one", "two", "three", "four", "five", "six"];
+    var arrOfClasses = ["six", "five", "four", "three", "two", "one"];
+
+    mouseClick.onclick = function(e){
+      var el = e.target.nextElementSibling
+
+      if (direction) {
+        for (var item of arrOfClasses) {
+          if (el.matches("." + item)) {
+            el.classList.remove(item);
+            if (arrOfClasses[arrOfClasses.length - 1] == item) {
+              direction = !direction;
+            }
+            return;
+          }
+        }
+      }  else {
+        for (var item of arrOfNumbers) {
+          if (!el.matches("." + item)) {
+            el.classList.add(item);
+            if (arrOfNumbers[arrOfNumbers.length - 1] == item) {
+              direction = !direction;
+            }
+            return;
+          }
+        }
+      } 
         console.log('click');
+
     }
 
+
+    var arrOfLights = ["Red", "Yellow", "Green"];
+    var counter = 0;
 
     mouseLight.onclick = function(e){
-        console.log('light');
+      if (counter === arrOfLights.length) {
+        counter = 0;
+      }
+
+      var light = arrOfLights[counter];
+      e.target.nextElementSibling.innerText = light;
+      counter++;
+      console.log('light');
     }
 
+
+
     var counter = 0;
-    keyboardButton.onkeydown = function(){
+    keyboardButton.onkeydown = function(e){
+      var el = e.target.nextElementSibling;
+      el.innerText = counter;
+      var arrOfIndexes = counter.toString().split("");
+
+      var arrOfWords = arrOfIndexes.map(function (x) {
+        switch (x) {
+          case "0":
+            return x = "zero";
+          case "1":
+            return x = "one";
+          case "2":
+            return x = "two";
+          case "3":
+            return x = "three";
+          case "4":
+            return x = "four";
+          case "5":
+            return x = "five";
+          case "6":
+            return x = "six";
+          case "7":
+            return x = "seven";
+          case "8":
+            return x = "eight";
+          case "9":
+            return x = "nine";
+        }
+      });
+
+      el.className = "Result-block key-colors " + arrOfWords.join(" ");
+      counter++;
         console.log('keydown');
     }
   </script>
