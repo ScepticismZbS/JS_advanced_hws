@@ -44,19 +44,38 @@
       // 1
 
       let btns = document.querySelectorAll("button");
-      console.log(btns);
+      let tabsArray = Array.from(document.querySelectorAll(".tab"));
 
-
-
-
-        
-         function show(event) {
-        let numTab = event.target.dataset.tab
-        console.log(numTab)
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function(e){
+          buttons.forEach(function(btn){
+            btn.classList.remove('active-btn');
+          })
+          e.target.classList.add('active-btn');
+          hideAllTabs();
+          getTabByDataTab(e.target.dataset.tab).classList.add('active');
+        })
+      })
+      
+      function getTabByDataTab(tabId) {
+        return tabsArray.find(function(tab) {
+          return tab.dataset.tab == tabId
+        })
       }
-
-      let tabs = document.querySelectorAll(".tab");
-
-      btns.onclick = function() {
-        btns.forEach.classList.add(active);
+      
+      function hideAllTabs(){
+        tabsArray.forEach(function(tab){
+          tab.classList.remove('active');
+        })
       }
+   
+      //    function show(event) {
+      //   let numTab = event.target.dataset.tab
+      //   console.log(numTab)
+      // }
+
+      // let tabs = document.querySelectorAll(".tab");
+
+      // btns.onclick = function() {
+      //   btns.forEach.classList.add(active);
+      // }
