@@ -14,6 +14,57 @@
         + бонус - то поле, которое не прошло валидацию подсвечивать красным.
                 - которое прошло - подсвечивать зеленым.
     */
+    var mainForm = document.getElementById('MyValidateForm');
+    var submitBtn = document.getElementById('submit');
+    var licenseAgreement = document.getElementById('agree');
+
+    var checkIfEmpty = (el) => {
+      return el.length === 0;
+    }
+
+    var checkSamePassword = (pass, confirmPass) => {
+      return pass === confirmPass;
+    }
+
+    licenseAgreement.addEventListener('click', function (e) {
+      if (e.target.checked) {
+        submitBtn.removeAttribute('disabled');
+      } else {
+        submitBtn.setAttribute('disabled', '');
+      }
+    })
+
+    mainForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var valid = true;
+
+      if (checkIfEmpty(mainForm.login.value)) {
+        valid = false;
+        mainForm.login.className = 'error';
+      } else {
+        mainForm.login.className = 'OK';
+      }
+
+      if (checkIfEmpty(mainForm.pas1.value)) {
+        valid = false;
+        mainForm.pas1.className = 'error';
+      } else {
+        mainForm.pas1.className = 'OK';
+      }
+
+      if (!checkSamePassword(mainForm.pas1.value, mainForm.pas2.value)) {
+        valid = false;
+        mainForm.pas2.className = 'error';
+      } else {
+        mainForm.pas2.className = 'OK';
+      }
+
+      if (valid) {
+        alert('form submitted');
+      }
+    });
+
   </script>
 </head>
 <body>
