@@ -20,7 +20,33 @@
 
     */
     window.addEventListener("load", function () {
+      let toDoInput = document.getElementById('newToDo');
+      let btnAddToDo = document.getElementById('AddToDo');
+      let toDoList = document.getElementById('toDoList');
 
+      btnAddToDo.addEventListener('click', function() {
+        let itemText = toDoInput.value;
+
+        let listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <input type="checkbox" class="DoneCheckbox" />
+            <span class="TodoText">${itemText}</span>
+            <button>Remove</button>
+        `;
+
+        let checkBox = listItem.querySelector('input');
+        let removeBtn = listItem.querySelector('button');
+
+        checkBox.addEventListener('input', (e) => {
+          listItem.querySelector('.TodoText').classList.toggle('done');
+        });
+
+        removeBtn.addEventListener('click', function() {
+          listItem.remove();
+        })
+
+        toDoList.appendChild(listItem);
+      })
     });
   </script>
 </head>
