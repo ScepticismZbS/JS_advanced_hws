@@ -16,10 +16,42 @@
     обьект с настройками передаем через .apply();
 
 */
-  let colors = {
-    background: 'purple',
-    color: 'white'
-  }
+  
+ let colors = {
+  background: 'purple',
+  color: 'white'
+}
+
+var h1 = document.createElement('h1');
+h1.innerText = "I know how binding works in JS";
+
+document.body.appendChild(h1);
+
+
+
+// 1.1
+function myCall( color ){
+  document.body.style.background = this.background;
+  document.body.style.color = color;
+}
+myCall.call( colors, 'red' );
+
+// 1.2
+function bindTest() {
+ document.body.style.background = this.background;
+ document.body.style.color = this.color;
+}
+let bindResult = bindTest.bind(colors);
+bindResult()
+
+// 1.3
+function newTitle() {
+  document.body.style.background = this.background;
+  document.body.style.color = this.color;
+  h1.innerText = "Some new Title";
+}
+
+newTitle.apply(colors, [""]);
 
   // fucntion myCall( color ){
   //   document.body.style.background = this.background;

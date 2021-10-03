@@ -22,3 +22,14 @@
       /* ... делать что-то с obj[key] ...
     // }
 */
+
+
+function Dog() {
+  this.name = "Charlie",
+  this.breed = "Retriever"
+}
+
+var dog = new Dog();
+
+dog.status = "eating";
+console.log(dog);
